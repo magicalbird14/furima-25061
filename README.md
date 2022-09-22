@@ -29,8 +29,8 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |name_reading|string|null: false|
-|email|text|null: false, unique: true, default: ""|
-|encrypted_password|text|null: false, default: ""|
+|email|text|null: false, unique: true|
+|encrypted_password|text|null: false|
 
 ### Association
 - has_many :items
