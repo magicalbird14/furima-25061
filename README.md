@@ -44,7 +44,7 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|item|string|null: false|
 |explanation|text|null: false|
 |category_id|integer|null: false|
 |condition_id|integer|null: false|
