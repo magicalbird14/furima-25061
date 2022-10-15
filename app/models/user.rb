@@ -12,8 +12,6 @@ class User < ApplicationRecord
           validates :firstname
           validates :lastname_reading
           validates :firstname_reading
-          validates :email, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i }
-          validates :password
           validates :birthday
         end
 
@@ -28,7 +26,7 @@ class User < ApplicationRecord
           validates :lastname_reading
           validates :firstname_reading
         end
-        
+
         #半角英数字を両方含む
         with_options  format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "is invalid. Input half-width characters."} do
           validates :password
@@ -36,9 +34,9 @@ class User < ApplicationRecord
 
 
 
-  class Photo < ActiveRecord::Base
-    has_many :items
-    has_many :purchases
-  end
+  # class Photo < ActiveRecord::Base
+  #   has_many :items
+  #   has_many :purchases
+  # end
 end
 
