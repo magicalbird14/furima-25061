@@ -32,7 +32,7 @@ class User < ApplicationRecord
           validates :password
         end
 
-
+  has_many :items
 
   # class Photo < ActiveRecord::Base
   #   has_many :items
