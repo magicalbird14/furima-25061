@@ -1,5 +1,10 @@
 FactoryBot.define do
   factory :item do
+    # インスタンス生成後に呼び出し
+    after(:build) do |img|
+      img.image.attach(io: File.open('app/assets/images/青.png'), filename: '青.png')
+    end
+
     item             {Faker::Lorem.word}
     explanation      {Faker::Lorem.paragraph}
 

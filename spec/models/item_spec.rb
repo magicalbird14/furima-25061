@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload('app/assets/images/青.png')
+    # 以下の書き方でもエラーにはならないが、Factoybotを利用する。
+    # @item.image = fixture_file_upload('app/assets/images/青.png')
   end
 
   describe "商品登録" do
