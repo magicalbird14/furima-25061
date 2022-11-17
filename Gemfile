@@ -65,3 +65,9 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'jquery-rails'
+
+
+group :production do
+  gem 'pg'
+end
+
