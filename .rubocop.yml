@@ -8,6 +8,7 @@ AllCops:
    - "bin/*"
    - "node_modules/**/*"
    - "Gemfile"
+  #  - "app/controllers/application_controller.rb"
 
 
 # 1行あたりの文字数をチェックする

@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :image 
+    validates :image
     validates :item
     validates :explanation
     validates :category_id
@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options numericality: {other_than: 1, message: "can't be blank"} do
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :condition_id
     validates :shipping_fee_id
@@ -21,11 +21,10 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
   end
 
-  validates :price, 
-             #対象の値がblank? => trueの場合にバリデーションをスキップします。
-             allow_blank: true, 
-             numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-
+  validates :price,
+            # 対象の値がblank? => trueの場合にバリデーションをスキップします。
+            allow_blank: true,
+            numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
@@ -35,5 +34,4 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship
 
   belongs_to :user
-
 end
