@@ -130,9 +130,8 @@
 
       <% @items.each do |item| %>
         <li class='list'>
-          <%= link_to "" %>
-          <div class='item-img-content'>
-            <%= image_tag item.image, class: "item-img"%>
+          <%= link_to image_tag(item.image, class: "item-img"), item_path(item.id), method: :get %>
+          <div class='item-img-content' >
 
             <%# 商品が売れていればsold outを表示しましょう %>
             <%# <% if （購入記録が存在していたら） %>
