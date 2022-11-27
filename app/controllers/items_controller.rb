@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless @item.user == current_user
+    user_judgment
   end
 
   def update
@@ -33,6 +33,13 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    user_judgment
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -54,4 +61,9 @@ class ItemsController < ApplicationController
   def item_id
     @item = Item.find(params[:id])
   end
+
+  def user_judgment
+    redirect_to root_path unless @item.user == current_user
+  end
+
 end
