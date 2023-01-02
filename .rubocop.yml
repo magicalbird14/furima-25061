@@ -10,7 +10,6 @@ AllCops:
    - "Gemfile"
    - "app/controllers/application_controller.rb"
 
-
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
  Max: 130

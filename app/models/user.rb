@@ -33,9 +33,5 @@ class User < ApplicationRecord
   end
 
   has_many :items
-
-  # class Photo < ActiveRecord::Base
-  #   has_many :items
-  #   has_many :purchases
-  # end
+  has_many :purchases
 end
