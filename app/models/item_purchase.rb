@@ -3,7 +3,7 @@ class ItemPurchase
   attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_id, :user_id, :token
 
   # 電話番号バリデーション
-  PHONE = /\A0(\d{1}\d{4}|\d{2}\d{3}|\d{3}\d{2}|\d{4}\d{1}|[5789]0\d{4})\d{4}\z/.freeze
+  phone = /\A0(\d{5}|[5789]0\d{4})\d{4}\z/
 
   with_options presence: true do
     validates :postal_code
@@ -19,7 +19,7 @@ class ItemPurchase
   # 対象の値がblank? => trueの場合にバリデーションをスキップします。
   with_options allow_blank: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :phone_number, format: { with: PHONE }
+    validates :phone_number, format: { with: phone }
   end
 
   def save
