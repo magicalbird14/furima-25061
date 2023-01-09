@@ -3,7 +3,7 @@ class ItemPurchase
   attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_id, :user_id, :token
 
   # 電話番号バリデーション
-  phone = /\A0(\d{5}|[5789]0\d{4})\d{4}\z/
+  phone = /\A0\d{5}\d{4}\z|\A0[5789]0\d{8}\z/
 
   with_options presence: true do
     validates :postal_code

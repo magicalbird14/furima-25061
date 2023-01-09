@@ -17,6 +17,10 @@ RSpec.describe ItemPurchase, type: :model do
         @item_purchase.building_name = nil
         expect(@item_purchase).to be_valid
       end
+      it '2-1電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。携帯電話11桁' do
+        @item_purchase.phone_number = '09012345678'
+        expect(@item_purchase).to be_valid
+      end
     end
 
     context '内容に問題がある場合' do
@@ -75,8 +79,8 @@ RSpec.describe ItemPurchase, type: :model do
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include 'Phone number is invalid'
       end
-      it '14電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。11桁' do
-        @item_purchase.phone_number = '01234567890'
+      it '14電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。12桁' do
+        @item_purchase.phone_number = '012345678901'
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include 'Phone number is invalid'
       end
@@ -92,6 +96,16 @@ RSpec.describe ItemPurchase, type: :model do
       end
       it '17電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。アルファベット' do
         @item_purchase.phone_number = '0901111222a'
+        @item_purchase.valid?
+        expect(@item_purchase.errors.full_messages).to include 'Phone number is invalid'
+      end
+      it '18電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。先頭0始まり以外' do
+        @item_purchase.phone_number = '1234567890'
+        @item_purchase.valid?
+        expect(@item_purchase.errors.full_messages).to include 'Phone number is invalid'
+      end
+      it '19電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと。携帯電話存在しない番号' do
+        @item_purchase.phone_number = '02012345678'
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include 'Phone number is invalid'
       end
