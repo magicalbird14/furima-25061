@@ -34,4 +34,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship
 
   belongs_to :user
+  has_one :purchase, dependent: :destroy
 end

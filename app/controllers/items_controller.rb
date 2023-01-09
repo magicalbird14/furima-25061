@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
     user_judgment
+    redirect_to root_path if @item.purchase.present?
   end
 
   def update
@@ -65,5 +66,4 @@ class ItemsController < ApplicationController
   def user_judgment
     redirect_to root_path unless @item.user == current_user
   end
-
 end
