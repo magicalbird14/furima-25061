@@ -36,27 +36,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Explanation can't be blank"
       end
       it '6カテゴリが必須であること。' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
       it '7商品の状態が必須であること。' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Condition can't be blank"
       end
       it '8配送料の負担が必須であること。' do
-        @item.shipping_fee_id = ''
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping fee can't be blank"
       end
       it '9発送元の地域が必須であること。' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
       it '10発送までの日数が必須であること。' do
-        @item.days_to_ship_id = ''
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Days to ship can't be blank"
       end
