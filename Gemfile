@@ -36,6 +36,12 @@ group :development, :test do
   gem 'faker'
   gem 'gimei'
   gem 'rails-i18n'
+
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -66,8 +72,10 @@ gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'jquery-rails'
 gem 'payjp'
+gem "aws-sdk-s3", require: false
 
 group :production do
   gem 'pg'
+  gem 'unicorn', '5.4.1'
 end
 
