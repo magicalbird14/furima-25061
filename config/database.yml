@@ -60,6 +60,7 @@ test:
 production:
   <<: *default
   # adapter: postgresql
+  # adapter: mysql2
   # url: <%= ENV['DATABASE_URL'] %>
   database: furima_25061_production
   # username: furima_25061
